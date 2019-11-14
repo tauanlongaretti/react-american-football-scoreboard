@@ -6,7 +6,14 @@ const BottomRow = () => {
 let [quarter, setQuarter] = useState(0);
 const nextQuarter = event => {
   setQuarter(quarter + 1);
+  if (quarter > 3) {
+    setQuarter(0);    
+  }
 };
+
+// const Reset = () => {
+//   setQuarter(quarter * 0);
+// }
   return (
     <div className="bottomRowContent">
       <div className="bottomRow">
@@ -26,11 +33,14 @@ const nextQuarter = event => {
           <h3 className="quarter__title">Quarter</h3> 
         <div className="quarter__value">{quarter}</div>
         <button className="nextQuarter" onClick={nextQuarter}>+</button>
+        {/* <button className="resetQuarter" onClick={Reset}>Reset</button> */}
         </div>
       </div>
     </div>
   );
 };
+
+
 
 export default BottomRow;
 
